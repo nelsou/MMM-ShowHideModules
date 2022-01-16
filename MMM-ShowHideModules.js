@@ -32,12 +32,14 @@ Module.register("MMM-ShowHideModules", {
 	},
 
 	getDom: function() {
-		const wrapper = document.createElement("div");
 		const links = [];
 		for (let i = 0; i < this.config.modules.length; i++) {
 			const module = this.config.modules[i];
 			links.push(`<span class="${!i ? 'bright':''}" data-module="${module.module}" data-header="${module.header}">${module.header}</span>`)
 		}
+
+		const wrapper = document.createElement("div");
+		wrapper.className = 'MMM-ShowHideModules';
 		wrapper.innerHTML = `<div class="dimmed">${links.join('')}</div>`;
 
 		wrapper.addEventListener("click", this.onClick.bind(this));
@@ -55,7 +57,7 @@ Module.register("MMM-ShowHideModules", {
 		if (bright$) {
 			bright$.className = '';
 		}
-		event.target.className = 'bright'
+		event.target.className = 'bright';
 
 		const dataModule = event.target.getAttribute('data-module');
 		const dataHeader = event.target.getAttribute('data-header');
