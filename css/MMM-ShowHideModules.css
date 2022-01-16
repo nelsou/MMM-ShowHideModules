@@ -1,0 +1,9 @@
+div {
+  text-align: center;
+}
+span {
+  margin-right: 15px;
+}
+span.bright {
+  border-bottom: 1px solid var(--color-text-dimmed);
+}
